@@ -139,10 +139,13 @@
   // can get theme in js from index iframe
   // and can load css with js
   // uninstall or refresh if switching themes
+  require_once('config.php');
+  global $conf;
+
   $theme = isset($_GET['theme']) ? $_GET['theme'] : 'webamp';
   $player_head = '';
   $player_body = '';
-  include("kptheme/$theme/player.php");
+  include($conf['kplaylist_dir'] . "/kptheme/$theme/player.php");
 ?>
 
 <?php print $player_head; ?>
