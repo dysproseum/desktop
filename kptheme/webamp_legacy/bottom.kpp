@@ -1,5 +1,0 @@
-
-				echo '</td></tr></table>';
-				if ($this->form) echo '</form>';
-				echo '</td></tr></table>';
-				
