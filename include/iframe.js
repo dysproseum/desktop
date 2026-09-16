@@ -25,10 +25,14 @@ const windowManager =  {
       titlebar.innerHTML = title;
       div.hidden = false;
 
+      // Give unique id for callbacks.
+      div.id = 'awaiting-load';
+
       //var address = div.querySelector('.address');
       //address.value = url;
       var iframe = div.querySelector('iframe');
       iframe.src = url;
+      // @todo wait for claim
       body.classList.remove("wait");
     }
     this.makeWindowActive(id);
@@ -105,7 +109,7 @@ const windowManager =  {
 
     // Update address bar if same-origin.
     index.addEventListener("load", function(e) {
-      console.log(e.eventPhase + " " + this.src);
+      // console.log(e.eventPhase + " " + this.src);
       animation.src = "images/netscape.jpg";
 
       // Check if href and title are available from same-origin first.
@@ -126,12 +130,11 @@ const windowManager =  {
         address.value = url;
       }
 
-    if (browser.classList.contains("kplaylist")) {
-      setTimeout(function() {
-        init(index);
-        animation.src = "images/netscape.jpg";
-      }, 2000);
-    }
+      if (browser.classList.contains("kplaylist")) {
+        setTimeout(function() {
+          init(index);
+        }, 2000);
+      }
     });
 
     // Prevent underlying iframe from intercepting drag events

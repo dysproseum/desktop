@@ -22,4 +22,12 @@ modules/
   - provide parts that need to go in the outer (parent) document.
   - include(../kplaylist/kptheme/webamp/player.php)
 
+iframe api
+- window focus
+- play song in webamp
+- open new window (window type)
 
+### Testing other sites
+
+Remember CORS is needed to load at all
+Try proxy to workaround CORS

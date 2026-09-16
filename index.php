@@ -19,7 +19,11 @@
 
 <?php print $player_head; ?>
 
+<script type="text/javascript">
+  var kplaylist_url = '<?php print $conf['kplaylist_url']; ?>';
+</script>
 <script type="text/javascript" src="include/drag.js"></script>
+<script type="text/javascript" src="include/iframe-api.js"></script>
 <script type="text/javascript" src="include/iframe.js"></script>
 </head>
 <body class="wait">
