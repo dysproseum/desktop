@@ -22,7 +22,11 @@
     window.parent.parentUnloadRequest(id);
   });
 
-  // if parent replies, update all links to create iframes.
+  window.addEventListener("focus", function(e) {
+    window.parent.parentFocus(id);
+  });
+
+  // if @todo parent replies, update relevant links to create iframes.
 </script>
 
 <body bgcolor="gray">

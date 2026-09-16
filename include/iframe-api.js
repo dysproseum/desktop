@@ -10,6 +10,7 @@
  * 1. child requests id from parent on load
  * 2. parent generates id
  * 3. child maintains id until unload event
+ *
  */
 
 window.parentLoadRequest = function() {
@@ -49,3 +50,14 @@ function startAnimation(id) {
     a.src="images/netscape.gif";
   }
 }
+
+// Receive focus to bubble up z-index events.
+window.parentFocus = function(id) {
+  var div = document.getElementById(id);
+  if (div) {
+    windowManager.setWindowLayer(div);
+  }
+  else {
+    console.log("no div " + id);
+  }
+};

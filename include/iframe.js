@@ -95,6 +95,7 @@ const windowManager =  {
     let reload;
     let home;
     let address;
+    let addressbar;
     let animation;
     let form;
     titlebar = browser.querySelector(".browser .titlebar h1");
@@ -104,6 +105,7 @@ const windowManager =  {
     reload = browser.querySelector(".reload");
     home = browser.querySelector(".home");
     address = browser.querySelector(".address");
+    addressbar = browser.querySelector(".addressbar");
     form = browser.querySelector(".navigate");
     animation = browser.querySelector(".animation");
 
@@ -203,6 +205,12 @@ const windowManager =  {
         init(index);
       }, 500);
     }
+
+    // Also bring window to front when address bar is focused.
+    addressbar.setAttribute("tabindex", -1);
+    addressbar.addEventListener("focus", function() {
+      windowManager.setWindowLayer(this.parentElement);
+    }, true);
 
     dragElement(browser);
   },
