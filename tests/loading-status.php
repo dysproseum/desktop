@@ -1,4 +1,4 @@
-<?php sleep(10); ?>
+<?php sleep(5); ?>
 <html>
 <head>
 <title>Test Child Loading Status <?php print date('Y-m-d h:i:s a'); ?></title>

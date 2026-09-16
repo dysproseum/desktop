@@ -19,7 +19,6 @@ window.parentLoadRequest = function() {
   if (div) {
     var id = (+new Date).toString(36);  // "iepii89m"
     div.id = id;
-    stopAnimation(id);
     return id;
   }
   else {
@@ -33,21 +32,18 @@ window.parentUnloadRequest = function(id) {
   startAnimation(id);
 }
 
-// Helper functions for iframe load callbacks.
-function stopAnimation(id) {
-  var div = document.getElementById(id);
-  var a = div.querySelector('.animation');
-  if (a) {
-    a.src="images/netscape.jpg";
-  }
-}
-
+// Helper function for iframe load callbacks.
 function startAnimation(id) {
   var div = document.getElementById(id);
-  div.id = 'awaiting-load';
+  if (div) {
+    div.id = 'awaiting-load';
+  }
+  else {
+    console.log("no div: " + id);
+  }
   var a = div.querySelector('.animation');
   if (a) {
-    a.src="images/netscape.gif";
+    a.src = "images/netscape.gif";
   }
 }
 
@@ -58,6 +54,6 @@ window.parentFocus = function(id) {
     windowManager.setWindowLayer(div);
   }
   else {
-    console.log("no div " + id);
+    console.log("no div: " + id);
   }
 };
